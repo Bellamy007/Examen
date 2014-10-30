@@ -16,6 +16,19 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`project` /*!40100 DEFAULT CHARACTER SET
 
 USE `project`;
 
+/*Table structure for table `examen` */
+
+DROP TABLE IF EXISTS `examen`;
+
+CREATE TABLE `examen` (
+  `id_examen` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `calificacion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_examen`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+/*Data for the table `examen` */
+
 /*Table structure for table `grupo_alum` */
 
 DROP TABLE IF EXISTS `grupo_alum`;
@@ -92,15 +105,16 @@ DROP TABLE IF EXISTS `preguntas`;
 
 CREATE TABLE `preguntas` (
   `id_pregunta` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) DEFAULT NULL,
+  `nombre` varchar(300) DEFAULT NULL,
+  `respuesta` varchar(2) DEFAULT NULL,
   `estatus` int(11) DEFAULT NULL,
   `avatar` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_pregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 /*Data for the table `preguntas` */
 
-insert  into `preguntas`(`id_pregunta`,`nombre`,`estatus`,`avatar`) values (2,'pregunta1',1,';)'),(3,'pregunta2\r\n',1,';)'),(4,'pregunta3',1,';)'),(5,'pregunta4',1,';)'),(6,'pregunta5',1,';)'),(7,'pregunta6',1,';)'),(8,'pregunta7',1,';)'),(9,'pregunta8',1,';)'),(10,'pregunta9',1,';)'),(11,'pregunta10',1,';)'),(12,'pregunta11',1,';)'),(13,'pregunta12',1,';)'),(14,'pregunta13',1,';)'),(15,'pregunta14',1,';)');
+insert  into `preguntas`(`id_pregunta`,`nombre`,`respuesta`,`estatus`,`avatar`) values (1,'¿Los griegos constituyeron un estado uniforme?','F',1,';)'),(2,'¿Alejandro Magno difunfió la cultura griega por gr','V',1,';)'),(3,'¿Los templos griegos eran de carácter colosal para','F',1,';)'),(4,'¿Esparta fue una polis que gobernó mediante un rég','F',1,';)'),(5,'¿La arquitectura griega era de carácter abovedado,','F',1,';)'),(6,'¿Percicles fue un importamte general y hombre de estado ateniense?','V',1,';)'),(7,'¿La economía griega se basó fundamentalmente en la agriultura, complementada por la ganadería.?','V',1,';)'),(8,'La palabra moral viene del latín mos-moris, que significa costumbre, modo de vivir, el carácter o la','V',1,';)'),(9,'La Ética, una disciplina que nace en la Grecia Clásica en el s. IV a. C, formando parte de la Histor','F',1,';)'),(10,'Un código moral es impuesto por la sociedad y las personas pueden elegir libremente','F',1,';)'),(11,'La responsabilidad es la obligación de responder acerca de nuestros actos','V',1,';)'),(12,'Una condición fundamental para que podamos juzgar si un individuo actúa moralmente bien o no es que ','V',1,';)'),(13,'Una persona que conoce las normas y valores morales de una sociedad y, a pesar de ello, las transgre','F',1,';)'),(14,'El ser humano necesita convivir con los demás para desarrollarse como ser moral.','V',1,';)'),(15,'La libertad del ser humano no es total, está condicionada por su naturaleza genética y por el medio ','V',NULL,NULL),(16,'Dado que el ser humano no es enteramente libre, nunca se le puede considerar responsable moral de su','F',NULL,NULL),(17,'Hasta hoy, jhon Glenn es el último hombre que pisó la luna','F',NULL,NULL),(18,'Una perra viajó al espacio antes que los seres humanos','V',NULL,NULL),(19,'¿Los números primos solo tienen dos divisores naturales?','V',NULL,NULL),(20,'¿El 1 es un número primo?','F',NULL,NULL);
 
 /*Table structure for table `usuario` */
 
@@ -129,7 +143,7 @@ CREATE TABLE `usuario` (
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`iduser`,`name`,`fname`,`lname`,`phone`,`street`,`num1`,`num2`,`col`,`mun`,`est`,`cp`,`cor`,`user`,`cont`,`lvl`,`estatus`) values (1,'Monica','mendez','gutierrez','7225859911','Camino Real',1,2,'',NULL,NULL,NULL,NULL,'monica','202cb962ac59075b964b07152d234b70','2','1'),(2,'Daniel','martinez','rojas','7225859977','Veracruz',1,2,NULL,NULL,NULL,NULL,NULL,'daniel','202cb962ac59075b964b07152d234b70','3','1'),(3,'Jairo','Rojas','Martinez',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'jairo','202cb962ac59075b964b07152d234b70','3','1'),(4,'Bertin','Boilla','Rivas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bertin','202cb962ac59075b964b07152d234b70','2','1'),(5,'Juan','Bonifacio','Martinez',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'juan','202cb962ac59075b964b07152d234b70','1','1');
+insert  into `usuario`(`iduser`,`name`,`fname`,`lname`,`phone`,`street`,`num1`,`num2`,`col`,`mun`,`est`,`cp`,`cor`,`user`,`cont`,`lvl`,`estatus`) values (1,'Monica','mendez','gutierrez','7225859977','Camino Real',1,2,'',NULL,NULL,NULL,NULL,'monica','202cb962ac59075b964b07152d234b70','2','1'),(2,'Daniel','martinez','rojas','7225859977','Veracruz',1,2,NULL,NULL,NULL,NULL,NULL,'daniel','202cb962ac59075b964b07152d234b70','3','1'),(3,'Jairo','Rojas','Martinez',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'jairo','202cb962ac59075b964b07152d234b70','3','1'),(4,'Bertin','Boilla','Rivas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bertin','202cb962ac59075b964b07152d234b70','2','1'),(5,'Juan','Bonifacio','Martinez',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'juan','202cb962ac59075b964b07152d234b70','1','1');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
