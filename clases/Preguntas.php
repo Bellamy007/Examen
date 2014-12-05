@@ -24,11 +24,12 @@ class Preguntas {
             $max=mysql_result($sql,0,'numero');
                 $this->id_pregunta=rand(1,$max);
                 $preguntas=mysql_query("SELECT * FROM preguntas WHERE id_pregunta=$this->id_pregunta")or die ("error de consulta 2");
-                //Obtenemos la pregunta WHERE id_pregunta= $id;
-                //Inicializamos arreglo auxiliar en cero:
             $pregunta=mysql_result($preguntas,0,'nombre');
+            //AQUI CONCADENO TODAS LAS IDS Y ABAJO LAS MANDO EN UN HIDDEN
+            //PARA POSTERIORMENTE USARLAS EN MI OTRA CLASE QUE VALIDARA
             $this->ids.=$this->id_pregunta." ";
             echo "<label>$Contador .- $pregunta</label>";
+            //IMPRIMO LAS PREGUNTAS Y LA VARIBALE CONTADOR PARA IDETIFICARLAS
             echo"<div class='radio'>
                      <label>
                         <input type='radio' value='V' name='res$Contador' checked>Verdadero
@@ -46,7 +47,7 @@ class Preguntas {
                 $Contador++;
             //}
         }
-        echo"<input type='hidden' name='ids' value='$this->ids'>";
+        echo"<input type='hidden' name='ids' value='$this->ids'>";//AQUI MANDO TODAS LAS IDS CONCADENADAS
     }
     public  function calificacion($ids){
         $y=1;

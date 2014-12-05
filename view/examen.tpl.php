@@ -25,7 +25,7 @@ url=login.php'>";
 url=login.php'>";
     exit();
 }//aqui valido que exista una sesion
-//y obtengo el "id" de el usuario ($idusuario)
+//y obtengo el "id" de el usuario ($idusuario) para usar la variable en mi metodo updateCalificacion
 
 $preg = new Preguntas();
 if(isset($_POST['mandar'])){
